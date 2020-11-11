@@ -1,0 +1,25 @@
+--회원 테이블--
+
+create table users (
+    id varchar2(30) not null primary key
+    , pw varchar2(30) not null
+    , name varchar2(30) not null
+    , email varchar2(30)
+    , address varchar2(100)
+    , regate date default sysdate
+);
+
+
+create table board(
+    bno number(10, 0) not null
+    , writer varchar2(50)not null
+    , title varchar2(200) not null
+    , content varchar2(2000)
+    , regdate date default sysdate
+    , hit number(10, 0) default 0
+);
+
+
+alter table board add constraint board_pk primary key (bno);
+
+create sequence board_seq start with 1 increment by 1 nocache;
